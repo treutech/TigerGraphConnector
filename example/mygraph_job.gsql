@@ -1,0 +1,3 @@
+USE GRAPH MyGraph
+CREATE LOADING JOB mygraph_job FOR GRAPH MyGraph { DEFINE FILENAME country_file = "/home/tigergraph/data/country.csv"; DEFINE FILENAME city_file = "/home/tigergraph/data/city.csv"; DEFINE FILENAME connection_file = "/home/tigergraph/data/connection.csv"; LOAD country_file TO VERTEX country VALUES ($0, $1, $2) USING header="true"; LOAD city_file TO VERTEX city VALUES ($0, $1, $2, $3) USING header="true", QUOTE="double"; LOAD connection_file TO EDGE connection VALUES ($0, $1) USING header="true"; }
+RUN LOADING JOB mygraph_job
