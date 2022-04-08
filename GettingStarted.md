@@ -20,7 +20,7 @@ This guide will provide the steps necessary to configure and start the source an
                 - [Load Sample Data into TigerGraph](#load-sample-data-into-tigergraph)
                 - [Additional TigerGraph Operations](#additional-tigergraph-operations)
             - [Setting Up the TigerGraph Kafka Connector](#setting-up-the-tigergraph-kafka-connector)
-                - [Generate the Connector from the sources](#generate-the-connector-from-sources)
+                - [Generate the Connector from the sources](#generate-the-connector-from-the-sources)
                 - [TigerGraph Connector Manual Installation](#tigergraph-connector-manual-installation)
                 - [Running the TigerGraph Connector](#running-the-tigergraph-connector)
         - [General Notes on Configuring Connectors for use against your own code](#general-notes-on-configuring-connectors-for-use-against-your-own-code)
@@ -259,9 +259,8 @@ If you have `auto.create.topics.enable` enabled in your broker server properties
 
 1) To generate the connector exportable from the sources you need Java 8 (or above) and Maven installed in your system.
 
-2) From the command line go to the `lib` directory of this project.
-
-3) Add the TigerGraph JDBC Driver to your local Maven repository, with the command:
+2) From the command line go to the `lib` directory of this project and
+add the TigerGraph JDBC Driver to your local Maven repository with the command:
 
 ```
 mvn install:install-file \
@@ -273,9 +272,32 @@ mvn install:install-file \
    -DgeneratePom=true
 ```
 
-4) From the root of the project type `mvn clean package`
+Add the TigerGraph JDBC Driver common to your local Maven repository with the command:
 
-5) This command will generate the file:  `TigerGraphConnector-1.0.0-with-all-dependencies.jar` inside the target directory.
+```
+mvn install:install-file \
+   -Dfile=tg-jdbc-common-1.2.jar \
+   -DgroupId=com.tigergraph.tg-jdbc-common \
+   -DartifactId=tigergraph-common \
+   -Dversion=1.2 \
+   -Dpackaging=jar \
+   -DgeneratePom=true
+```
+
+Add the TigerGraph JDBC Driver restpp to your local Maven repository with the command:
+
+```
+mvn install:install-file \
+   -Dfile=tg-jdbc-restpp-1.2.jar \
+   -DgroupId=com.tigergraph.tg-jdbc-restpp \
+   -DartifactId=tigergraph-restpp \
+   -Dversion=1.2 \
+   -Dpackaging=jar \
+   -DgeneratePom=true
+```
+
+4) From the root of this project (TigerGraphConnector) type `mvn clean package`.
+This command will generate the file:  `TigerGraphConnector-1.0.0-with-all-dependencies.jar` inside the target directory.
 
 
 #### TigerGraph Connector Manual Installation
