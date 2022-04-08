@@ -20,27 +20,47 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
+    <!--dependency>
       <groupId>com.tigergraph.tg-jdbc-common</groupId>
       <artifactId>tigergraph-common</artifactId>
       <version>1.2</version>
       <scope>system</scope>
       <systemPath>${pom.basedir}/lib/tg-jdbc-common-1.2.jar</systemPath>
-    </dependency>
+    </dependency-->
     <dependency>
       <groupId>com.tigergraph.tg-jdbc-driver</groupId>
       <artifactId>tigergraph-driver</artifactId>
       <version>1.2</version>
-      <scope>system</scope>
-      <systemPath>${pom.basedir}/lib/tg-jdbc-driver-1.2.jar</systemPath>
+      <!--scope>system</scope>
+      <systemPath>${pom.basedir}/lib/tg-jdbc-driver-1.2.jar</systemPath-->
     </dependency>
-    <dependency>
+    <!--dependency>
       <groupId>com.tigergraph.tg-jdbc-restpp</groupId>
       <artifactId>tigergraph-restpp</artifactId>
       <version>1.2</version>
       <scope>system</scope>
       <systemPath>${pom.basedir}/lib/tg-jdbc-restpp-1.2.jar</systemPath>
+    </dependency-->
+    <!--dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-streams</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>connect-runtime</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka_2.12</artifactId>
+      <version>${kafka.version}</version>
+    </dependency-->
     <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>connect-api</artifactId>

@@ -32,16 +32,8 @@
     <dependencySet>
       <unpack>true</unpack>
       <useTransitiveDependencies>false</useTransitiveDependencies>
-      <includes>
-        <include>com.tigergraph.jdbc.*:*</include>
-        <!--include>com.tigergraph.tg-jdbc-driver:tigergraph-driver</include-->
-      </includes>
-    </dependencySet>
-
-    <dependencySet>
-      <unpack>true</unpack>
-      <useTransitiveDependencies>false</useTransitiveDependencies>
       <excludes>
+        <exclude>*jersey*</exclude>
         <exclude>com.fasterxml.*</exclude>
         <exclude>io.confluent*</exclude>
         <exclude>org.apache.avro*</exclude>
