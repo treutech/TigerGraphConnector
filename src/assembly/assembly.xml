@@ -33,7 +33,6 @@
       <unpack>true</unpack>
       <useTransitiveDependencies>false</useTransitiveDependencies>
       <excludes>
-        <exclude>*jersey*</exclude>
         <exclude>com.fasterxml.*</exclude>
         <exclude>io.confluent*</exclude>
         <exclude>org.apache.avro*</exclude>

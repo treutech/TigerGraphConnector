@@ -20,6 +20,7 @@ This guide will provide the steps necessary to configure and start the source an
                 - [Load Sample Data into TigerGraph](#load-sample-data-into-tigergraph)
                 - [Additional TigerGraph Operations](#additional-tigergraph-operations)
             - [Setting Up the TigerGraph Kafka Connector](#setting-up-the-tigergraph-kafka-connector)
+                - [Generate the Connector from the sources](#generate-the-connector-from-sources)
                 - [TigerGraph Connector Manual Installation](#tigergraph-connector-manual-installation)
                 - [Running the TigerGraph Connector](#running-the-tigergraph-connector)
         - [General Notes on Configuring Connectors for use against your own code](#general-notes-on-configuring-connectors-for-use-against-your-own-code)
@@ -254,6 +255,29 @@ If you have `auto.create.topics.enable` enabled in your broker server properties
 
 
 
+#### Generate the Connector from the sources
+
+1) To generate the connector exportable from the sources you need Java 8 (or above) and Maven installed in your system.
+
+2) From the command line go to the `lib` directory of this project.
+
+3) Add the TigerGraph JDBC Driver to your local Maven repository, with the command:
+
+```
+mvn install:install-file \
+   -Dfile=tg-jdbc-driver-1.2.jar \
+   -DgroupId=com.tigergraph.tg-jdbc-driver \
+   -DartifactId=tigergraph-driver \
+   -Dversion=1.2 \
+   -Dpackaging=jar \
+   -DgeneratePom=true
+```
+
+4) From the root of the project type `mvn clean package`
+
+5) This command will generate the file:  `TigerGraphConnector-1.0.0-with-all-dependencies.jar` inside the target directory.
+
+
 #### TigerGraph Connector Manual Installation
 
 1) Locate the confluent-X.X.X directory on your system. This will be referred to as the `<path-to-confluent>` from here on.
@@ -262,7 +286,7 @@ If you have `auto.create.topics.enable` enabled in your broker server properties
 
 3) Next, create a folder named `kafka-connect-tigergraph` in the `<path-to-confluent>/share/java` directory.
 
-4) From the `target` directory (generated with the command `mvn clean package`), copy the following file into `<path-to-confluent>/share/java/kafka-connect-tigergraph`:
+4) From the `dist` directory (or from `target` directory, if you generated it), copy the following file into `<path-to-confluent>/share/java/kafka-connect-tigergraph`:
 
     `TigerGraphConnector-1.0.0-with-all-dependencies.jar`
 
